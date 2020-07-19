@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { MenuConfigService } from './menu-config';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  styleUrls: ['./app.component.less'],
 })
 export class AppComponent {
-  title = 'ng-zorro-antd-admin';
+  isCollapsed = false;
+
+  constructor(public menuService: MenuConfigService) {}
+  get menus() {
+    return this.menuService.menus;
+  }
 }
